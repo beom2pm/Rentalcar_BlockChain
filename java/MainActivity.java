@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
     
     try {
-            File f=new File("Index17.txt");
+            File f=new File("Index.txt");
             if(f.exists()) {
                 String s_currentLine;
-                FileInputStream fis = openFileInput("Index17.txt");
+                FileInputStream fis = openFileInput("Index.txt");
                 BufferedReader br = new BufferedReader(new InputStreamReader(fis));
                 while ((s_currentLine = br.readLine()) != null) {
                     index_lastLine_string = s_currentLine;
