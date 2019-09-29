@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
     Vector<Pair> scretch_left= new Vector<>();
     Vector<Pair> scretch_right= new Vector<>();
 
-
-//인덱스만 연결해주면 된다 블록 생성할때마다 인덱스 증가시켜서 만들어주면 될듯 아싸링
-//index_last line은 생각해보니까 사용자앱에서 받을때 필요한거고 여기서는 getindex해서 증가만 시켜주면 될듯 ㅇㅋㅇㅋ
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,19 +58,18 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             initBlockchain();
-            System.out.println("박아영 바보");
+            System.out.println("Success");
         } catch (InvalidKeyException | NoSuchAlgorithmException | UnsupportedEncodingException | SignatureException e) {
             e.printStackTrace();
-            System.out.println("실패에에에에");
+            System.out.println("File");
         }
 
-        //처음 실행시에는 여기부분만 공개하고 바로 밑인 2)부분은 주석처리를 해주세요
-        //1)
-    /*try {
+    
+    try {
             File f=new File("Index17.txt");
             if(f.exists()) {
                 String s_currentLine;
-                FileInputStream fis = openFileInput("Index9.txt");
+                FileInputStream fis = openFileInput("Index17.txt");
                 BufferedReader br = new BufferedReader(new InputStreamReader(fis));
                 while ((s_currentLine = br.readLine()) != null) {
                     index_lastLine_string = s_currentLine;
@@ -92,28 +88,8 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
-     //여기까지 해주시면 됩니다..굽신굽신
-        //2) 여기는 처음이 아니면 여기를 주석처리하지 않고 해주시면 됩니다!!(index파일 새로 만들때는 -처음할때는 이부분을 주석처리)
-   try{
-            String s_currentLine;
-            FileInputStream fis = openFileInput("Index17.txt");
-            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-            while ((s_currentLine = br.readLine()) != null) {
-                index_lastLine_string = s_currentLine;
-            }
-            Toast.makeText(MainActivity.this, "성공~" + index_lastLine_string, Toast.LENGTH_LONG).show();
-            br.close();
-            index_lastLine = Integer.parseInt(index_lastLine_string);
-
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-        e.printStackTrace();
         }
-
-    //여기까지
-
+  
             Block previous_block = Blockchain.getLatestBlock();
             String batterys = previous_block.getBattery();
             String tires = previous_block.getTire();
@@ -306,6 +282,6 @@ public class MainActivity extends AppCompatActivity {
 
             blockchain = new Stack<Block>();
             blockchain.addElement(BlockUtil.generateGenesisBlock());
-            System.out.println("박아영 멍청이");
+            System.out.println("BLOCK");
         }
 }
